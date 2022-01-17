@@ -1,0 +1,34 @@
+# ワークフロー名
+name: test_chatbot
+
+# 発火タイミング(utc時刻で7時)日本時間と9時間のズレ
+on:
+  push:
+#  schedule:
+#    - cron: '0 22 * * *'
+  
+jobs:
+  build:
+    # Ubuntuの最新版環境内で処理
+    runs-on: ubuntu-latest
+    
+    # 実行する処理&コマンド指定
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.10.0
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.10.0
+      - name: Install dependencies
+        run: |
+          # pip更新
+          python -m pip install --upgrade pip
+          # 必要なパッケージインストール
+          pip install line-bot-sdk
+      - name: Run script
+#        env:
+#         CHANNEL_ACCESS_TOKEN: "8L0bDibvM22bcFNubLGbJLZXl2PvyVLnJ7LfEt338EntA29U5hwqFxL3PWaBOt9dA+K4SfxOr8ipy97XSSx2/f8A/oa37omYtn5OFpjNzXaClokkiaer4hkB3mzsEqrklY2DhmFZMUuA7dwUSX82bgdB04t89/1O/w1cDnyilFU="
+#          USER_ID: "U1cc2c40bd1540fa3965f7486fe81ab22"
+        run: |
+          # main.pyの実行
+          python main.py
