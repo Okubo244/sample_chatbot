@@ -12,7 +12,7 @@ line_bot_api = LineBotApi(CHANNEL_ACCESS_TOKEN)
 
 def main():
     USER_ID = info['USER_ID']
-    messages = TextSendMessage(text = f"こんにちは！ \n 本日のランキングサイトです。\n\n"
+    messages = TextSendMessage(text = f"こんにちは！ \n 本日のランキングサイトです！ \n\n"
                                       f"https://scraping-for-beginner.herokuapp.com/ranking/"),
     line_bot_api.push_message(USER_ID, messages = messages)
     
