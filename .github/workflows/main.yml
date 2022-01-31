@@ -4,8 +4,8 @@ name: chatbot2
 # 発火タイミング(utc時刻で7時)日本時間と9時間のズレ
 on:
   push:
-  schedule:
-    - cron: '0 22 * * *'
+#  schedule:
+#   - cron: '0 22 * * *'
   
 jobs:
   build:
